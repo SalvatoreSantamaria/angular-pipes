@@ -9,7 +9,8 @@ export class AppComponent {
   name: string;
   inputDate: string;
   amount: number;
-  
+  miles: number;
+
   someObject = {
     make: 'Ford',
     year: 1999
@@ -26,4 +27,10 @@ export class AppComponent {
   onAmountChange(value: string) {
     this.amount = parseFloat(value);
   }
+
+  onMilesChange(value: string) {
+    //parseFloat because input is always string
+    this.miles = parseFloat(value);
+  }
+  
 }

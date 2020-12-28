@@ -23,6 +23,22 @@ https://angular.io/api?type=pipe -->
   <input (input)="onAmountChange($event.target.value)"/>
     <br>
     {{ amount | currency:'CAD' }}
+
+    <!-- be sure to wrap in parens for ngIf -->
+    <div *ngIf="(amount | currency:'CAD')">
+      CA: {{ amount | currency:'CAD' }}
+    </div>
+</div>
+
+<div>
+  (this uses a custom pipe, see convert.pipe.ts)
+  <br>
+  <label type="date">Miles to km</label>
+  <input (input)="onMilesChange($event.target.value)"/>
+    <br>
+    <!-- can also change the convert to 'm' for a km to miles conversion on the custom pipe -->
+    <!-- Also showing chained pipes with the number pipe that limits decimal lengths-->
+    Kilometers: {{ miles | convert: 'km' | number: '1.0-2'}}
 </div>
 
 <br>
